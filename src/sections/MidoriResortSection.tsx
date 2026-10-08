@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IMAGES } from '../data/assets';
 import { 
   Waves, 
@@ -11,27 +11,39 @@ import {
   Compass, 
   Sparkles, 
   Home, 
-  ChevronRight 
+  ChevronRight,
+  BookOpen,
+  Eye
 } from 'lucide-react';
 import { getWhatsAppLink, trackAnalyticsEvent } from '../constants/brand';
+import { MidoriExperienceGalleryModal } from '../components/MidoriExperienceGalleryModal';
 
 interface MidoriResortSectionProps {
   onOpenModal?: () => void;
 }
 
 export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpenModal }) => {
+  const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false);
+  const [selectedChapterId, setSelectedChapterId] = useState<string>('destino');
+
+  const handleOpenGallery = (chapterId = 'destino') => {
+    setSelectedChapterId(chapterId);
+    setIsGalleryModalOpen(true);
+    trackAnalyticsEvent('abrir_catalogo_midori', { chapter: chapterId });
+  };
+
   const handleCtaClick = () => {
     trackAnalyticsEvent('clique_cta_ecossistema', { section: 'midori_stack' });
   };
 
   const experienceAssets = [
-    { name: "1 Jet Ski", icon: Waves },
+    { name: "Parceria Marina (Barcos)", icon: Waves },
     { name: "2 Motos Elétricas", icon: Zap },
     { name: "5 Patinetes Elétricos", icon: Bike },
-    { name: "2 Canoas", icon: Compass },
-    { name: "2 Stand Up Paddles", icon: Waves },
-    { name: "1 Bote p/ 4 Pessoas", icon: Compass },
-    { name: "Piscina Privativa", icon: Sparkles },
+    { name: "Canoas", icon: Compass },
+    { name: "Stand Up Paddles", icon: Waves },
+    { name: "Bote para 4 Pessoas", icon: Compass },
+    { name: "Piscina Aquecida com SPA Integrado", icon: Sparkles },
     { name: "Espaço Gourmet", icon: Flame },
     { name: "Bangalôs", icon: Armchair },
     { name: "Lounge", icon: Armchair },
@@ -66,7 +78,7 @@ export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpen
           </div>
           <div className="p-4 sm:p-5 rounded-xl bg-[#081b14] border border-white/10 text-center">
             <div className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#f7d486]">66 m²</div>
-            <div className="text-xs uppercase tracking-wider text-white/70 mt-1 font-mono">de Piscina</div>
+            <div className="text-[11px] sm:text-xs uppercase tracking-wider text-white/70 mt-1 font-mono leading-tight">Piscina Aquecida com SPA Integrado</div>
           </div>
           <div className="p-4 sm:p-5 rounded-xl bg-[#081b14] border border-white/10 text-center">
             <div className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#f7d486]">6 Lofts</div>
@@ -74,43 +86,101 @@ export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpen
           </div>
         </div>
 
-        {/* Galeria compacta de fotos do resort */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto mb-10">
-          <div className="h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group">
+        {/* MIDORI PREMIUM EXPERIENCE GALLERY — Composição Editorial de Luxo */}
+        <div className="max-w-5xl mx-auto mb-14 space-y-4 sm:space-y-5">
+          
+          {/* 1. Fotografia Principal do Empreendimento em Formato Panorâmico (Largura Total) */}
+          <div 
+            onClick={() => handleOpenGallery('projeto-midori')}
+            className="group relative w-full h-[280px] sm:h-[400px] lg:h-[480px] rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl cursor-pointer"
+          >
             <img 
-              src={IMAGES.loftInterior} 
-              alt="Loft MIDORI" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              referrerPolicy="no-referrer"
+              src="/images/midori/lofts/midori-implantacao-panoramica-oficial.jpg" 
+              alt="MIDORI Private Club - Implantação e Masterplan Oficial" 
+              className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-              <span className="text-xs font-semibold text-white tracking-wide">6 Lofts de Arquitetura Autoral</span>
+            {/* Overlay de gradiente escuro para legibilidade máxima do título */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06120d]/95 via-[#06120d]/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-radial-vignette opacity-50 pointer-events-none" />
+
+            {/* Legenda inferior limpa — Apenas título principal branco */}
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
+              <div className="max-w-2xl">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif-luxury font-normal text-white drop-shadow-md leading-snug line-clamp-2">
+                  MIDORI Private Club — 6 Lofts de Arquitetura Autoral
+                </h3>
+              </div>
+
+              <div className="shrink-0">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider backdrop-blur-md border border-white/20 group-hover:border-[#00a86b] transition-all">
+                  <Eye className="w-3.5 h-3.5 text-[#5eead4]" />
+                  <span>Ver em Detalhes</span>
+                </span>
+              </div>
             </div>
           </div>
 
-          <div className="h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group">
-            <img 
-              src={IMAGES.loftPoolSunset} 
-              alt="Piscina Privativa MIDORI" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-              <span className="text-xs font-semibold text-white tracking-wide">Piscina Privativa de 66 m²</span>
+          {/* 2. Duas Imagens Secundárias Selecionadas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            
+            {/* Secundária 1: Experiência no Resort & Represa */}
+            <div 
+              onClick={() => handleOpenGallery('destino')}
+              className="group relative h-[220px] sm:h-[260px] rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-xl cursor-pointer"
+            >
+              <img 
+                src="/images/midori/resort/represa-jurumirim-sunset.jpg" 
+                alt="Represa de Jurumirim ao Entardecer" 
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06120d]/95 via-[#06120d]/40 to-transparent pointer-events-none" />
+
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-left">
+                <h4 className="text-base sm:text-lg lg:text-xl font-serif-luxury font-medium text-white drop-shadow-md leading-snug line-clamp-2">
+                  Represa de Jurumirim & Lazer Náutico
+                </h4>
+              </div>
             </div>
+
+            {/* Secundária 2: Arquitetura dos Lofts & Piscina Privativa */}
+            <div 
+              onClick={() => handleOpenGallery('projeto-midori')}
+              className="group relative h-[220px] sm:h-[260px] rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-xl cursor-pointer"
+            >
+              <img 
+                src="/images/midori/lofts/loft-fachada-arquitetura.jpg" 
+                alt="Arquitetura dos Lofts MIDORI" 
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#06120d]/95 via-[#06120d]/40 to-transparent pointer-events-none" />
+
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-left">
+                <h4 className="text-base sm:text-lg lg:text-xl font-serif-luxury font-medium text-white drop-shadow-md leading-snug line-clamp-2">
+                  Piscina Aquecida com SPA Integrado & Lofts de Luxo
+                </h4>
+              </div>
+            </div>
+
           </div>
 
-          <div className="h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group">
-            <img 
-              src={IMAGES.gourmetArea} 
-              alt="Gourmet & Lounge MIDORI" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-              <span className="text-xs font-semibold text-white tracking-wide">Espaço Gourmet & Fire Pit</span>
-            </div>
+          {/* 3. Botão Centralizado: "EXPLORAR A EXPERIÊNCIA MIDORI" */}
+          <div className="pt-3 text-center">
+            <button
+              onClick={() => handleOpenGallery('destino')}
+              className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-4.5 rounded-xl bg-gradient-to-r from-[#00a86b]/20 via-[#d4af37]/25 to-[#00a86b]/20 hover:from-[#00a86b]/35 hover:via-[#d4af37]/40 hover:to-[#00a86b]/35 border border-[#d4af37]/60 hover:border-[#f7d486] text-white font-mono uppercase tracking-[0.2em] text-xs sm:text-sm font-semibold shadow-2xl shadow-black/80 hover:shadow-[#d4af37]/20 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-[#d4af37] group-hover:scale-110 transition-transform" />
+              <span>EXPLORAR A EXPERIÊNCIA MIDORI</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#5eead4]" />
+            </button>
+            <p className="text-[11px] sm:text-xs text-white/50 font-mono mt-2 tracking-wide">
+              Catálogo editorial digital • 3 capítulos exclusivos • Fotografias e perspectivas oficiais
+            </p>
           </div>
+
         </div>
 
         {/* Frase de apoio curta antes dos cards */}
@@ -153,20 +223,20 @@ export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpen
               </div>
               <ul className="space-y-2 text-xs text-white/85 font-medium flex-1">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
-                  <span>1 Jet Ski</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b] shrink-0" />
+                  <span>Canoas</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
-                  <span>2 Canoas</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b] shrink-0" />
+                  <span>Stand Up Paddles</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
-                  <span>2 Stand Up Paddles</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b] shrink-0" />
+                  <span>Bote para 4 Pessoas</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
-                  <span>1 Bote para 4 Pessoas</span>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b] shrink-0 mt-1" />
+                  <span className="leading-snug">Parceria com a Marina para locação de barcos</span>
                 </li>
               </ul>
             </div>
@@ -207,9 +277,9 @@ export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpen
                 </h4>
               </div>
               <ul className="space-y-1.5 text-xs text-white/85 font-medium flex-1">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
-                  <span>Piscina Privativa (66 m²)</span>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b] shrink-0 mt-1" />
+                  <span className="leading-snug">Piscina Aquecida com SPA Integrado</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00a86b]" />
@@ -261,6 +331,13 @@ export const MidoriResortSection: React.FC<MidoriResortSectionProps> = ({ onOpen
         </div>
 
       </div>
+
+      {/* Modal do Catálogo Editorial Digital MIDORI */}
+      <MidoriExperienceGalleryModal
+        isOpen={isGalleryModalOpen}
+        onClose={() => setIsGalleryModalOpen(false)}
+        initialChapterId={selectedChapterId}
+      />
     </section>
   );
 };

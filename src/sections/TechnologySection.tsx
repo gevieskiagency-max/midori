@@ -13,7 +13,6 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import { MidoriLogo } from '../components/MidoriLogo';
 
 export const TechnologySection: React.FC = () => {
   const [activeScreen, setActiveScreen] = useState<'agenda' | 'checkin' | 'financeiro' | 'ia'>('agenda');

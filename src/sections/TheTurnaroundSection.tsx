@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, CalendarCheck, Hotel, ChevronRight } from 'lucide-react';
-import { MidoriEmblem } from '../components/MidoriLogo';
+import { MidoriLogo } from '../components/MidoriLogo';
 import { getWhatsAppLink, trackAnalyticsEvent } from '../constants/brand';
 import { IMAGES } from '../data/assets';
 
@@ -27,11 +27,9 @@ export const TheTurnaroundSection: React.FC = () => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
-        {/* Emblema MIDORI */}
-        <div className="flex justify-center mb-5">
-          <div className="p-1 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/25 shadow-lg">
-            <MidoriEmblem className="w-12 h-12" color="#040e0a" bgColor="#00a86b" />
-          </div>
+        {/* Logo MIDORI Oficial */}
+        <div className="flex justify-center mb-6">
+          <MidoriLogo size="md" />
         </div>
 
         {/* Headline */}
@@ -61,8 +59,11 @@ export const TheTurnaroundSection: React.FC = () => {
             <h3 className="text-lg font-serif-luxury text-white font-medium mb-2 tracking-wide">
               PROPRIEDADE
             </h3>
-            <p className="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
-              Participação real no patrimônio imobiliário de alto padrão na Riviera, com total segurança jurídica, contratual e transparência.
+            <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed mb-2.5">
+              Tem sua unidade exclusiva sem peso de ter uma casa de passeio e atendimento de hotelaria.
+            </p>
+            <p className="text-xs sm:text-sm text-[#5eead4] font-normal leading-relaxed">
+              Podendo usufruir em outras regiões também.
             </p>
           </div>
 
@@ -74,8 +75,8 @@ export const TheTurnaroundSection: React.FC = () => {
             <h3 className="text-lg font-serif-luxury text-white font-medium mb-2 tracking-wide">
               USO INTELIGENTE
             </h3>
-            <p className="text-xs sm:text-sm text-white/75 font-light leading-relaxed">
-              Direito a 6 ou 12 semanas anuais distribuídas de forma equitativa para você aproveitar o ano inteiro sem o peso da ociosidade.
+            <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
+              Você escolhe a cota que mais se encaixa na sua vida, usar 1 semana por mês ou 1 semana a cada 2 meses.
             </p>
           </div>
 

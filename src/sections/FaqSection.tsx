@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle, Phone, Sparkles } from 'lucide-react';
-import { MidoriEmblem } from '../components/MidoriLogo';
+import { MidoriLogo } from '../components/MidoriLogo';
 import { getWhatsAppLink, trackAnalyticsEvent } from '../constants/brand';
 import { IMAGES } from '../data/assets';
 
@@ -11,14 +11,41 @@ interface FaqClosingProps {
 export const FaqSection: React.FC<FaqClosingProps> = ({ onOpenModal }) => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const faqItems = [
+  const faqItems: { q: string; a: React.ReactNode }[] = [
     {
       q: "1. O que estou adquirindo?",
-      a: "Você adquire uma cota de participação patrimonial real do MIDORI PRIVATE CLUB, com fração imobiliária de um resort boutique de 6 lofts, piscina privativa de 66m², área gourmet, bangalôs e todo o acervo de mobilidade náutica e terrestre."
+      a: (
+        <div className="space-y-2.5">
+          <p>
+            Você adquire uma cota de uso vitalício de um loft de alto padrão, totalmente mobiliado e pronto para receber você, sua família ou seus convidados.
+          </p>
+          <p>
+            Além do loft, você terá acesso à estrutura de lazer e experiências integradas ao Iate Clube Riviera, com padrão inspirado em resorts de Orlando e Miami.
+          </p>
+          <p className="text-white/90">
+            Uma combinação de conforto, praticidade e experiência de resort em um único investimento.
+          </p>
+        </div>
+      )
     },
     {
       q: "2. Como funciona o uso?",
-      a: "Você escolhe entre 6 semanas ao ano (1 semana a cada 2 meses) ou 12 semanas ao ano (1 semana por mês). As estadias são agendadas através de calendário equitativo e transparente para aproveitar todas as estações com sua família."
+      a: (
+        <div className="space-y-2.5">
+          <p>
+            Cada cota garante ao cotista 1 semana de uso por mês ou 1 semana a cada 2 meses, de forma vitalícia, conforme a modalidade contratada.
+          </p>
+          <p>
+            Você poderá utilizar seu período com sua família e convidados, de acordo com a disponibilidade e as regras de sorteio de cada trimestre.
+          </p>
+          <p>
+            Caso não utilize sua semana, poderá disponibilizá-la para troca com outros cotistas.
+          </p>
+          <p className="text-white/90">
+            Mais liberdade para usar. Mais praticidade para administrar. Mais possibilidades para aproveitar seu patrimônio.
+          </p>
+        </div>
+      )
     },
     {
       q: "3. Quem cuida da operação?",
@@ -77,7 +104,7 @@ export const FaqSection: React.FC<FaqClosingProps> = ({ onOpenModal }) => {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/5 pt-3 font-light">
+                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-sm sm:text-[15px] text-white/80 leading-relaxed border-t border-white/5 pt-3.5 font-light">
                     {item.a}
                   </div>
                 )}
@@ -107,9 +134,7 @@ export const FaqSection: React.FC<FaqClosingProps> = ({ onOpenModal }) => {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <div className="flex justify-center mb-6">
-              <div className="p-1 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/35 shadow-xl backdrop-blur-sm">
-                <MidoriEmblem className="w-14 h-14" color="#050f0c" bgColor="#d4af37" />
-              </div>
+              <MidoriLogo size="md" />
             </div>
 
             <h3 className="text-2xl sm:text-4xl lg:text-5xl font-serif-luxury font-normal text-white leading-tight mb-3 drop-shadow-md">

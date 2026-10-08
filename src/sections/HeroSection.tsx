@@ -62,11 +62,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenModal }) => {
           />
 
           {/* Brand Logo & Name */}
-          <div className="mb-3 flex flex-col items-center">
-            <MidoriLogo variant="full" colorMode="light" showSubtitle={false} className="items-center" />
-            <p className="text-[11px] sm:text-xs tracking-[0.38em] uppercase font-display-luxury text-[#e8c67c] mt-1.5 font-semibold text-shadow-sub">
-              PRIVATE CLUB
-            </p>
+          <div className="mb-4 flex flex-col items-center">
+            <MidoriLogo size="lg" colorMode="green" className="items-center drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]" />
           </div>
 
           {/* Main Headline - Controlled reading width, balanced line breaks & refined hierarchy */}

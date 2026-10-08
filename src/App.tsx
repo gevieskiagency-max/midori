@@ -11,7 +11,7 @@ import { TheTurnaroundSection } from './sections/TheTurnaroundSection';
 import { MidoriResortSection } from './sections/MidoriResortSection';
 import { ComparisonSection } from './sections/ComparisonSection';
 import { OfferSection } from './sections/OfferSection';
-import { TechManagementSection } from './sections/TechManagementSection';
+import { AcquisitionSection } from './sections/AcquisitionSection';
 import { FaqSection } from './sections/FaqSection';
 
 export default function App() {
@@ -55,8 +55,8 @@ export default function App() {
         {/* 6. OFERTA / 36 FAMÍLIAS FUNDADORAS (Cotas R$ 150k e R$ 300k, 20% OFF Fundadores) */}
         <OfferSection onOpenModal={(cotaId) => handleOpenModal(cotaId)} />
 
-        {/* 6.1 GESTÃO & TECNOLOGIA: VOCÊ VIVE. A OPERAÇÃO CUIDA DO RESTANTE. */}
-        <TechManagementSection />
+        {/* 6.1 AQUISIÇÃO: POR QUE COMPRAR UMA COTA? */}
+        <AcquisitionSection onOpenModal={() => handleOpenModal()} />
 
         {/* 7. FECHAMENTO + FAQ CURTO (4 perguntas) + WHATSAPP */}
         <FaqSection onOpenModal={() => handleOpenModal()} />

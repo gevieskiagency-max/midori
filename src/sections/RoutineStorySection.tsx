@@ -143,7 +143,7 @@ export const RoutineStorySection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               
               <div className="absolute bottom-6 left-6 right-6 p-4 sm:p-6 bg-[#081511]/80 backdrop-blur-md rounded-xl border border-white/10">
-                <div className="flex items-center justify-between text-xs text-[#d4af37] font-mono tracking-widest mb-1">
+                <div className="flex items-center justify-between text-xs text-white/60 font-mono tracking-widest mb-1">
                   <span>MOMENTO {activeMoment + 1} DE 5</span>
                   <span>MIDORI EXPERIENCE</span>
                 </div>

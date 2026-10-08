@@ -1,5 +1,5 @@
 import React from 'react';
-import { MidoriLogo, MidoriEmblem } from '../components/MidoriLogo';
+import { MidoriLogo } from '../components/MidoriLogo';
 import { getWhatsAppLink, trackAnalyticsEvent, BRAND_INFO } from '../constants/brand';
 import { IMAGES } from '../data/assets';
 import { ShieldCheck, Sparkles, Phone, ArrowRight, MapPin } from 'lucide-react';
@@ -33,7 +33,7 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ onOpenModal }) =
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           <div className="flex justify-center mb-8">
-            <MidoriEmblem className="w-16 h-16" color="#050f0c" bgColor="#d4af37" />
+            <MidoriLogo size="md" colorMode="green" />
           </div>
 
           <span className="text-xs uppercase font-mono tracking-[0.3em] text-[#d4af37] block mb-4">

@@ -27,7 +27,7 @@ import {
   MoreHorizontal,
   TrendingUp
 } from 'lucide-react';
-import { MidoriEmblem } from '../components/MidoriLogo';
+import { MidoriLogo } from '../components/MidoriLogo';
 import { getWhatsAppLink, trackAnalyticsEvent } from '../constants/brand';
 
 export const TechManagementSection: React.FC = () => {
@@ -135,13 +135,8 @@ export const TechManagementSection: React.FC = () => {
                   {/* TOPO: Logo MIDORI + Notificação + Avatar LF */}
                   <div className="flex items-center justify-between pb-1">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#f3cb69] flex items-center justify-center p-1.5 shadow-md">
-                        <MidoriEmblem className="w-full h-full" color="#03150e" bgColor="#f3cb69" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold tracking-[0.25em] text-white font-mono uppercase leading-tight">
-                          MIDORI
-                        </div>
+                      <MidoriLogo size="xs" />
+                      <div className="border-l border-white/10 pl-2">
                         <div className="text-[7.5px] font-mono tracking-widest text-white/55 uppercase">
                           PROPRIEDADES FRACIONADAS
                         </div>
@@ -405,7 +400,7 @@ export const TechManagementSection: React.FC = () => {
                 TRANSPARÊNCIA NA OBRA
               </h4>
               <p className="text-xs text-white/75 font-light leading-relaxed">
-                Acompanhamento da evolução do projeto e da construção por meio do ambiente digital do MIDORI.
+                Acompanhamento da evolução do projeto e da construção por meio do sistema de gestão da obra em tempo real, fase por fase.
               </p>
             </div>
           </div>

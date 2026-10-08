@@ -62,7 +62,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
                   24 COTAS NO TOTAL
                 </span>
                 <span className="text-[10px] sm:text-[11px] bg-[#00a86b]/15 border border-[#00a86b]/35 text-[#5eead4] px-2 py-0.5 rounded font-mono font-semibold">
-                  6 SEMANAS / ANO
+                  1 SEMANA A CADA 2 MESES
                 </span>
               </div>
 
@@ -72,28 +72,8 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
 
               <div className="my-4 p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-white/70">TEMPO DE USO:</span>
-                  <span className="text-white font-semibold">6 semanas por ano</span>
-                </div>
-                <div className="flex items-center justify-between text-xs sm:text-sm">
                   <span className="text-white/70">FREQUÊNCIA:</span>
                   <span className="text-white font-semibold">1 semana a cada 2 meses</span>
-                </div>
-              </div>
-
-              {/* Preço e Enquadramento High-Ticket */}
-              <div className="my-5">
-                <div className="text-[11px] uppercase tracking-wider text-white/50 font-mono">
-                  INVESTIMENTO • FAMÍLIAS FUNDADORAS
-                </div>
-                <div className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white mt-1">
-                  R$ 150.000
-                </div>
-                <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded bg-[#d4af37]/15 border border-[#d4af37]/35 text-[#f7d486] text-[11px] font-mono font-bold">
-                  <span>CONDIÇÃO ESPECIAL FUNDADORES • 20% OFF</span>
-                </div>
-                <div className="text-[10px] text-white/45 font-mono mt-1">
-                  Aplicação da condição especial conforme apresentação comercial.
                 </div>
               </div>
 
@@ -105,7 +85,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
                 <ul className="space-y-2 text-xs text-white/80 font-light">
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#00a86b] shrink-0 mt-0.5" />
-                    <span>6 semanas anuais no MIDORI</span>
+                    <span>1 semana a cada 2 meses no MIDORI</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#00a86b] shrink-0 mt-0.5" />
@@ -129,13 +109,13 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
 
             <div className="mt-6 pt-4 border-t border-white/10">
               <a
-                href={getWhatsAppLink("Tenho interesse na Cota Loft de 8 Famílias, 6 semanas por ano.")}
+                href={getWhatsAppLink("Tenho interesse na Cota Loft de 8 Famílias (1 semana a cada 2 meses).")}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleOfferClick('cota_8_familias')}
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#00a86b] hover:bg-[#0bbd7b] text-white font-bold uppercase tracking-[0.14em] text-xs sm:text-sm py-3.5 px-4 rounded-md shadow-lg shadow-[#00a86b]/25 transition-all cursor-pointer"
               >
-                <span>Quero Avaliar a Cota de 6 Semanas</span>
+                <span>Quero Avaliar a Cota (1 semana a cada 2 meses)</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
             </div>
@@ -153,7 +133,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
                   12 COTAS NO TOTAL
                 </span>
                 <span className="text-[10px] sm:text-[11px] bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f7d486] px-2 py-0.5 rounded font-mono font-bold">
-                  12 SEMANAS / ANO
+                  1 SEMANA POR MÊS
                 </span>
               </div>
 
@@ -163,28 +143,8 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
 
               <div className="my-4 p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-white/70">TEMPO DE USO:</span>
-                  <span className="text-white font-semibold">12 semanas por ano</span>
-                </div>
-                <div className="flex items-center justify-between text-xs sm:text-sm">
                   <span className="text-white/70">FREQUÊNCIA:</span>
                   <span className="text-white font-semibold">1 semana por mês</span>
-                </div>
-              </div>
-
-              {/* Preço e Enquadramento High-Ticket */}
-              <div className="my-5">
-                <div className="text-[11px] uppercase tracking-wider text-white/50 font-mono">
-                  INVESTIMENTO • FAMÍLIAS FUNDADORAS
-                </div>
-                <div className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white mt-1">
-                  R$ 300.000
-                </div>
-                <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f7d486] text-[11px] font-mono font-bold">
-                  <span>CONDIÇÃO ESPECIAL FUNDADORES • 20% OFF</span>
-                </div>
-                <div className="text-[10px] text-white/45 font-mono mt-1">
-                  Aplicação da condição especial conforme apresentação comercial.
                 </div>
               </div>
 
@@ -196,7 +156,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
                 <ul className="space-y-2 text-xs text-white/80 font-light">
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
-                    <span>12 semanas anuais no MIDORI</span>
+                    <span>1 semana por mês no MIDORI</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
@@ -220,13 +180,13 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onOpenModal }) => {
 
             <div className="mt-6 pt-4 border-t border-white/10">
               <a
-                href={getWhatsAppLink("Tenho interesse na Cota Loft de 4 Famílias, 12 semanas por ano.")}
+                href={getWhatsAppLink("Tenho interesse na Cota Loft de 4 Famílias (1 semana por mês).")}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleOfferClick('cota_4_familias')}
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#d4af37] hover:bg-[#e0be4e] text-[#06140f] font-bold uppercase tracking-[0.14em] text-xs sm:text-sm py-3.5 px-4 rounded-md shadow-lg shadow-[#d4af37]/20 transition-all cursor-pointer"
               >
-                <span>Quero Avaliar a Cota de 12 Semanas</span>
+                <span>Quero Avaliar a Cota (1 semana por mês)</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
             </div>

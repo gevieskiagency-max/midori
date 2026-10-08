@@ -46,8 +46,8 @@ export const PrivatePresentationModal: React.FC<ModalProps> = ({
       `*Cidade/Região:* ${formData.city}\n` +
       `*Segmento/Profissão:* ${formData.profession}\n` +
       `*Interesse de Cota:* ${
-        formData.cotaInteresse === 'cota-4' ? 'Cota 4 Famílias (12 semanas/ano - R$ 300 mil)' :
-        formData.cotaInteresse === 'cota-8' ? 'Cota 8 Famílias (6 semanas/ano - R$ 150 mil)' : 'Desejo avaliar ambas as opções'
+        formData.cotaInteresse === 'cota-4' ? 'Cota 4 Famílias (1 semana por mês)' :
+        formData.cotaInteresse === 'cota-8' ? 'Cota 8 Famílias (1 semana a cada 2 meses)' : 'Desejo avaliar ambas as opções'
       }\n` +
       `*Melhor Horário:* ${formData.melhorHorario}\n\n` +
       `_Gostaria de agendar a apresentação confidencial das cotas fundadoras._`;
@@ -86,7 +86,7 @@ export const PrivatePresentationModal: React.FC<ModalProps> = ({
         {/* Header */}
         <div className="text-center mb-6">
           <div className="inline-flex justify-center mb-3">
-            <MidoriLogo variant="compact" showSubtitle={false} colorMode="gold" />
+            <MidoriLogo variant="stacked" size="sm" showSubtitle={true} colorMode="gold" />
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] text-[11px] uppercase tracking-widest font-semibold mb-2">
             <Lock className="w-3 h-3" /> Apresentação Confidencial
@@ -188,8 +188,8 @@ export const PrivatePresentationModal: React.FC<ModalProps> = ({
                   }`}
                 >
                   <div className="font-bold text-white">8 Famílias</div>
-                  <div className="text-[11px] text-[#d4af37]">6 semanas/ano</div>
-                  <div className="text-[10px] text-white/50">R$ 150 mil</div>
+                  <div className="text-[11px] text-[#d4af37]">1 semana a cada 2 meses</div>
+                  <div className="text-[10px] text-white/50">24 cotas totais</div>
                 </button>
 
                 <button
@@ -202,8 +202,8 @@ export const PrivatePresentationModal: React.FC<ModalProps> = ({
                   }`}
                 >
                   <div className="font-bold text-white">4 Famílias</div>
-                  <div className="text-[11px] text-[#d4af37]">12 semanas/ano</div>
-                  <div className="text-[10px] text-white/50">R$ 300 mil</div>
+                  <div className="text-[11px] text-[#d4af37]">1 semana por mês</div>
+                  <div className="text-[10px] text-white/50">12 cotas totais</div>
                 </button>
 
                 <button

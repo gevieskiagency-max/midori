@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
             className="flex items-center shrink-0 group cursor-pointer focus:outline-none"
             aria-label="MIDORI Private Club - Início"
           >
-            <MidoriLogo variant="standard" showSubtitle={false} colorMode="light" />
+            <MidoriLogo variant="horizontal" size="sm" showSubtitle={true} colorMode="green" />
           </a>
 
           {/* Desktop Nav Links - Streamlined strictly to the 7 core blocks */}
@@ -100,10 +100,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#d4af37] transition-all duration-300 group-hover/link:w-full" />
             </button>
             <button 
-              onClick={() => handleNavClick('gestao')}
+              onClick={() => handleNavClick('aquisicao')}
               className="relative py-1.5 whitespace-nowrap hover:text-[#d4af37] transition-colors cursor-pointer focus:outline-none group/link"
             >
-              <span>Gestão</span>
+              <span>Aquisição</span>
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#d4af37] transition-all duration-300 group-hover/link:w-full" />
             </button>
             <button 
@@ -161,12 +161,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#07130e]/98 backdrop-blur-2xl border-b border-[#d4af37]/20 px-6 py-8 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-[#d4af37] font-semibold flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#00a86b]" />
-              Grupo Exclusivo: 36 Famílias
+          <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
+            <MidoriLogo variant="horizontal" size="sm" showSubtitle={true} colorMode="green" />
+            <span className="text-[10px] text-[#d4af37] tracking-widest font-semibold uppercase bg-[#d4af37]/10 px-2.5 py-1 rounded border border-[#d4af37]/20">
+              36 Famílias
             </span>
-            <span className="text-[11px] text-white/50 tracking-wider">PROJETO 2027</span>
           </div>
 
           <div className="flex flex-col space-y-4 text-sm font-medium uppercase tracking-[0.18em] text-[#ede7dc]">
@@ -207,10 +206,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
               6. 36 Famílias Fundadoras (20% OFF)
             </button>
             <button
-              onClick={() => handleNavClick('gestao')}
+              onClick={() => handleNavClick('aquisicao')}
               className="text-left py-2.5 hover:text-[#d4af37] transition-colors border-b border-white/5"
             >
-              7. Gestão, Tecnologia & Operação
+              7. Aquisição (Por Que Comprar Uma Cota?)
             </button>
             <button
               onClick={() => handleNavClick('faq')}
